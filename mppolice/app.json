@@ -2,6 +2,11 @@
   "expo": {
     "name": "mppolice",
     "slug": "mppolice",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "extra": {
+      "eas": {
+        "projectId": "b2a6eb15-85d8-45ca-8060-ec02065679b8"
+      }
+    }
   }
 }

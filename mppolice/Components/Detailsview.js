@@ -24,7 +24,6 @@ const Detailsview = () => {
           padding: 16,
           width: "100%",
           height: "auto",
-          marginTop: 50,
         }}
       >
         <Text style={styles.headertext} variant="titleLarge">

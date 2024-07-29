@@ -27,7 +27,6 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 50,
   },
   headertext: {
     margin: 10,

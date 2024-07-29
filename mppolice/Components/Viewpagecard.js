@@ -16,7 +16,7 @@ const Viewpagecard = ({ navigation }) =>
       <View>
         <StyledTouchableOpacity
           onPress={() => navigation.navigate("Details")}
-          className="m-2 mb-0 p-1 bg-white rounded-lg shadow-md flex-row border-solid border-2 border-sky-500"
+          className="m-2 mb-1 p-1 bg-white rounded-lg shadow-md flex-row border-solid border-2 border-sky-500"
         >
           <StyledImage
             source={{ uri: imageUrl }}

@@ -9,12 +9,14 @@ import {
 import React from "react";
 import Viewpagesearchbar from "../Components/Viewpagesearchbar";
 import Viewpagecard from "../Components/Viewpagecard";
+import Viewpagefilters from "../Components/Viewpagefilters";
 
 const Viewpage = ({ navigation }) => {
   return (
     <SafeAreaView>
       <ScrollView>
         <Viewpagesearchbar />
+        <Viewpagefilters />
         <Viewpagecard navigation={navigation} />
         <Viewpagecard />
         <Viewpagecard />
