@@ -69,7 +69,7 @@ const FacilityCard = ({navigation}) => {
             The Annakoot Prasad at Mata Sharda Temple offers free meals on a
             first-come, first-served basis. Tokens are required, and meals are
             served daily from 12:00 PM to 3:00 PM. You can also explore other
-            hotels for yout stay here is the list :
+            hotels for your stay here is the list :
           </Text>
           <Button
             mode="contained"

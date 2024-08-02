@@ -14,7 +14,7 @@ const Tables = ({ tableData, tableHead }) => {
     <View style={styles.container}>
       <Table borderStyle={{ borderWidth: 1, borderColor: "#ccc" }}>
         <Row data={tableHead} style={styles.head} />
-        <Rows data={tableData} textStyle={styles.text} />
+        <Rows data={tableData} styles={styles.text} />
       </Table>
     </View>
   );
