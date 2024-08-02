@@ -1,19 +1,32 @@
 import React, { Component } from "react";
-import { StyleSheet, View, Text, Image } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { StyleSheet, View, Image } from "react-native";
+import { Button, Text } from "react-native-paper";
 
 function Homepageview({ navigation }) {
   return (
     <View style={styles.container}>
       <Image
         style={styles.image}
-        source={require("../assets/mppolicelogo3.png")}
+        source={require("../assets/mata_sharda_logo.gif")}
       />
-
-      <Text style={styles.path} onPress={() => navigation.navigate("View")}>
-        HOTEL FINDER BY MAIHAR POLICE
-      </Text>
+      <Text variant="displayLarge">MAIHAR TRAVEL</Text>
+      <Text variant="titleMedium">An app to navigate to the Maihar City</Text>
+      <View style={styles.buttonContainer}>
+        <Button
+          mode="contained"
+          style={styles.styledButton}
+          onPress={() => navigation.navigate("View")}
+        >
+          HOTELS
+        </Button>
+        <Button
+          mode="contained"
+          style={styles.styledButton}
+          onPress={() => navigation.navigate("Information")}
+        >
+          INFORMATION
+        </Button>
+      </View>
     </View>
   );
 }
@@ -21,11 +34,11 @@ function Homepageview({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     width: "100%",
-    height: "auto",
+    height: "100%",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 100,
+    backgroundColor: "white",
   },
   image: {
     width: 400,
@@ -33,9 +46,28 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  path: {
-    color: "orange",
-    fontSize: 28,
+
+  buttonContainer: {
+    height: "auto",
+    width: "100%",
+    flex: 1,
+    flexDirection: "column",
+    justifyContent: "center",
+    alignContent: "center",
+    width: "100%",
+    // marginTop: 80,
+    marginLeft: 80,
+  },
+  styledButton: {
+    marginBottom: 15,
+    height: 50,
+    width: "80%",
+    borderRadius: 15,
+    justifyContent: "center",
+    alignItems: "center",
+    color: "white",
+    fontSize: 30,
+    textAlign: "center",
   },
 });
 
