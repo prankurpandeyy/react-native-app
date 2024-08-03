@@ -1,11 +1,11 @@
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { List, Divider, Button, Alert } from "react-native-paper";
 import React from "react";
-import Bottomnavigation from "./Bottomnavigation";
 import Tables from "./Tables";
 import * as Linking from "expo-linking";
 import Facilitycard from "./Facilitycard";
 import Feedback from "./Feedback";
+import Howtoreach from "./Howtoreach";
 
 const Information = ({ navigation }) => {
   // Mandir Timing Data
@@ -49,7 +49,7 @@ const Information = ({ navigation }) => {
         </List.Accordion>
         <Divider />
         <List.Accordion title="How To Reach Temple " id="2">
-          <Bottomnavigation />
+          <Howtoreach />
         </List.Accordion>
         <Divider />
 

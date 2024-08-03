@@ -41,7 +41,7 @@ const TrainRoute = () => (
 
 const initialLayout = { width: Dimensions.get("window").width };
 
-function Bottomnavigation() {
+function Howtoreach() {
   const theme = useTheme();
   const [index, setIndex] = React.useState(0);
   const [routes] = React.useState([
@@ -147,4 +147,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Bottomnavigation;
+export default Howtoreach;

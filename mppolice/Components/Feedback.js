@@ -1,11 +1,11 @@
-import React from "react";
 import {
+  React,
   View,
   Text,
   TouchableOpacity,
   StyleSheet,
   Linking,
-} from "react-native";
+} from "../Constant/Libraryconstant";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 const Feedback = () => {

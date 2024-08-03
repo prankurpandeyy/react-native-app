@@ -1,15 +1,16 @@
-import * as React from "react";
-import { View, StyleSheet } from "react-native";
 import {
+  React,
+  View,
+  StyleSheet,
   Card,
   Title,
   Paragraph,
   IconButton,
   Text,
   Button,
-} from "react-native-paper";
+} from "../Constant/Libraryconstant";
 
-const FacilityCard = ({navigation}) => {
+const FacilityCard = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Card>

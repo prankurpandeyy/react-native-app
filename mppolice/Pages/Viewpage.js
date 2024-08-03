@@ -1,12 +1,4 @@
-import {
-  View,
-  Text,
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  StatusBar,
-} from "react-native";
-import React from "react";
+import { React, SafeAreaView, ScrollView } from "../Constant/Libraryconstant";
 import Viewpagesearchbar from "../Components/Viewpagesearchbar";
 import Viewpagecard from "../Components/Viewpagecard";
 import Viewpagefilters from "../Components/Viewpagefilters";

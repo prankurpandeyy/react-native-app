@@ -1,11 +1,26 @@
+// import {
+//   View,
+//   SafeAreaView,
+//   ScrollView,
+//   StyleSheet,
+//   Linking,
+// } from "react-native";
+// import {
+//   Text,
+//   Card,
+//   Title,
+//   Paragraph,
+//   IconButton,
+//   Divider,
+//   MD3Colors,
+// } from "react-native-paper";
+
 import {
   View,
   SafeAreaView,
   ScrollView,
   StyleSheet,
   Linking,
-} from "react-native";
-import {
   Text,
   Card,
   Title,
@@ -13,8 +28,8 @@ import {
   IconButton,
   Divider,
   MD3Colors,
-} from "react-native-paper";
-import React from "react";
+  React,
+} from "../Constant/Libraryconstant";
 
 const Detailsview = () => {
   return (

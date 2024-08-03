@@ -1,6 +1,11 @@
-import React, { Component } from "react";
-import { StyleSheet, View, Image } from "react-native";
-import { Button, Text } from "react-native-paper";
+import {
+  React,
+  StyleSheet,
+  View,
+  Image,
+  Button,
+  Text,
+} from "../Constant/Libraryconstant";
 
 function Homepageview({ navigation }) {
   return (
