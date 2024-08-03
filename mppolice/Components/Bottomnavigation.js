@@ -1,74 +1,3 @@
-// import * as React from "react";
-// import { View, useWindowDimensions, Text, StyleSheet } from "react-native";
-// import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-// import { TabView, SceneMap } from "react-native-tab-view";
-
-// const busRoute = () => (
-//   <View style={{ flex: 1, backgroundColor: "white" }}>
-//     <Text style={styles.textHeader}>
-//       You can easily get regular buses to Maihar from other major cities of the
-//       country. Bus Station(s): Maihar
-//     </Text>
-//   </View>
-// );
-
-// const trainRoute = () => (
-//   <View style={{ flex: 1, backgroundColor: "white" }}>
-//     <Text style={styles.textHeader}>
-//       Maihar is well connected to other major cities of the country via regular
-//       trains. Railway Station(s): Maihar (MYR)
-//     </Text>
-//   </View>
-// );
-
-// const flightRoute = () => (
-//   <View style={{ flex: 1, backgroundColor: "white" }}>
-//     <Text style={styles.textHeader}>
-//       There are no regular flights from other major cities of the country to
-//       Maihar. Nearest airport is Khajuraho Airport. Maihar 106 km away Khajuraho
-//       Airport (HJR), Khajuraho, Madhya Pradesh Maihar 145 km away Jabalpur
-//       Airport (JLR), Jabalpur, Madhya Pradesh
-//     </Text>
-//   </View>
-// );
-
-// const renderScene = SceneMap({
-//   bus: busRoute,
-//   train: trainRoute,
-//   flight: flightRoute,
-// });
-
-// function TabViewExample() {
-//   const layout = useWindowDimensions();
-
-//   const [index, setIndex] = React.useState(0);
-//   const [routes] = React.useState([
-//     { key: "bus", title: "bus" ,icon:"bus"},
-//     { key: "train", title: "train" ,icon:"train" },
-//     { key: "flight", title: "flight" ,icon:"airplane-takeoff" },
-//   ]);
-
-//   return (
-//     <View>
-//       <TabView
-//         navigationState={{ index, routes }}
-//         renderScene={renderScene}
-//         onIndexChange={setIndex}
-//         initialLayout={{ width: layout.width }}
-
-//       />
-//     </View>
-//   );
-
-// }
-// const styles = StyleSheet.create({
-//   textHeader: {
-//     margin: 10,
-//     fontSize: 15,
-//   },
-// });
-// export default TabViewExample;
-
 import * as React from "react";
 import { View, StyleSheet, Dimensions } from "react-native";
 import { Text, useTheme, Provider as PaperProvider } from "react-native-paper";
@@ -112,7 +41,7 @@ const TrainRoute = () => (
 
 const initialLayout = { width: Dimensions.get("window").width };
 
-export default function TabViewExample() {
+function Bottomnavigation() {
   const theme = useTheme();
   const [index, setIndex] = React.useState(0);
   const [routes] = React.useState([
@@ -217,3 +146,5 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
 });
+
+export default Bottomnavigation;

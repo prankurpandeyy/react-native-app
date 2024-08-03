@@ -24,7 +24,7 @@ function Homepageview({ navigation }) {
           style={styles.styledButton}
           onPress={() => navigation.navigate("Information")}
         >
-          INFORMATION
+          TEMPLE INFORMATION
         </Button>
       </View>
     </View>
