@@ -5,9 +5,16 @@ import Viewpagefilters from "../Components/Viewpagefilters";
 import { useEffect, useState } from "react";
 
 const Viewpage = ({ navigation }) => {
+
+
+
   return (
     <SafeAreaView>
       <ScrollView>
+
+
+
+
         <Viewpagesearchbar />
         <Viewpagefilters />
         <Viewpagecard navigation={navigation} />
