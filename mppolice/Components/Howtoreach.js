@@ -217,14 +217,12 @@ const Howtoreach = () => {
       key: "train",
       title: "Train",
       icon: "train",
-      extraText: "Extra Train Info",
     },
-    { key: "bus", title: "Bus", icon: "bus", extraText: "Extra Bus Info" },
+    { key: "bus", title: "Bus", icon: "bus" },
     {
       key: "flight",
       title: "Flight",
       icon: "airplane",
-      extraText: "Extra Flight Info",
     },
   ]);
 

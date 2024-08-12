@@ -2,6 +2,7 @@ import { React, SafeAreaView, ScrollView } from "../Constant/Libraryconstant";
 import Viewpagesearchbar from "../Components/Viewpagesearchbar";
 import Viewpagecard from "../Components/Viewpagecard";
 import Viewpagefilters from "../Components/Viewpagefilters";
+import { useEffect, useState } from "react";
 
 const Viewpage = ({ navigation }) => {
   return (
@@ -10,18 +11,6 @@ const Viewpage = ({ navigation }) => {
         <Viewpagesearchbar />
         <Viewpagefilters />
         <Viewpagecard navigation={navigation} />
-        <Viewpagecard />
-        <Viewpagecard />
-        <Viewpagecard />
-        <Viewpagecard />
-        <Viewpagecard />
-        <Viewpagecard />
-        <Viewpagecard />
-        <Viewpagecard />
-        <Viewpagecard />
-        <Viewpagecard />
-        <Viewpagecard />
-        <Viewpagecard />
       </ScrollView>
     </SafeAreaView>
   );

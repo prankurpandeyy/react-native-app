@@ -3,6 +3,8 @@ import React from "react";
 import Detailsview from "../Components/Detailsview";
 
 const Detailspage = ({ navigation }) => {
+
+  
   return (
     <SafeAreaView>
       <ScrollView>

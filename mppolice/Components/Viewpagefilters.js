@@ -5,17 +5,17 @@ import { Chip, Title, Button } from "react-native-paper";
 
 const priceRanges = [
   { label: "All", min: 0, max: Infinity },
-  { label: "Under $50", min: 0, max: 50 },
-  { label: "$50 - $100", min: 50, max: 100 },
-  { label: "$100 - $200", min: 100, max: 200 },
-  { label: "Above $200", min: 200, max: Infinity },
+  { label: "Under ₹50", min: 0, max: 50 },
+  { label: "₹50 - ₹100", min: 50, max: 100 },
+  { label: "₹100 - $200", min: 100, max: 200 },
+  { label: "Above ₹200", min: 200, max: Infinity },
 ];
 
 const PriceFilter = ({ onFilter }) => {
   const [selectedRange, setSelectedRange] = useState(priceRanges[0]);
 
   const applyFilter = () => {
-    Alert.alert("Filter Applied", `Selected Range: ${selectedRange.label}`);
+    Alert.alert("Filter Applied", `Selected Range: ₹{selectedRange.label}`);
   };
 
   return (
