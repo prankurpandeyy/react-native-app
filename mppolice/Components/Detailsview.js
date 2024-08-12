@@ -33,6 +33,7 @@ import {
   React,
 } from "../Constant/Libraryconstant";
 import DataSpinner from "./DataSpinner";
+import { color } from "@rneui/base";
 
 const Detailsview = () => {
   const [hotelData, setHotelData] = useState([]);
@@ -40,8 +41,11 @@ const Detailsview = () => {
 
   const route = useRoute();
   const { hotelId } = route.params; // Access hotelId here
+  // const databaseId = import.meta.env.VITE_APPWRITE_DATABASE_ID;
+  // console.log("🚀 ~ Detailsview ~ databaseId:", databaseId);
+  // const collectionId = import.meta.env.VITE_APPWRITE_COLLECTION_ID;
+  // console.log("🚀 ~ Detailsview ~ collectionId:", collectionId);
 
-  // const hotelId = "84bed869-95ef-4d44-acb9-dcd8872e7dd4";
   const fetchHotelById = async (hotelId) => {
     try {
       const response = await fetch(
@@ -89,70 +93,97 @@ const Detailsview = () => {
           <Text style={styles.headertext}>VIEW HOTEL DETAILS</Text>
           <Card>
             <Card.Content>
-              <Title>{hotelData.DhotelDataName}</Title>
-              <Paragraph>Location: {hotelData.HotelAddress}</Paragraph>
+              <Title style={styles.title}>{hotelData.HotelName}</Title>
+              <Paragraph style={styles.paragraph}>
+                Location: {hotelData.HotelAddress}
+              </Paragraph>
+
               <View style={styles.row}>
-                <IconButton icon="food" size={20} />
-                <Text>Type: {hotelData.HotelType}</Text>
+                <IconButton icon="food" size={24} />
+                <Text style={styles.text}>Type: {hotelData.HotelType}</Text>
               </View>
-              <Divider />
+              <Divider style={styles.divider} />
+
               <View style={styles.row}>
-                <IconButton icon="currency-usd" size={20} />
-                <Text>Rent: ₹{hotelData.HotelRent} per night</Text>
+                <IconButton icon="currency-usd" size={24} />
+                <Text style={styles.text}>
+                  Rent: ₹{hotelData.HotelRent} per night
+                </Text>
               </View>
-              <Divider />
+              <Divider style={styles.divider} />
+
               <View style={styles.row}>
-                <IconButton icon="phone" size={20} />
-                <Text>Contact: {hotelData.HotelContact}</Text>
+                <IconButton icon="phone" size={24} />
+                <Text style={styles.text}>
+                  Contact: {hotelData.HotelContact}
+                </Text>
               </View>
+              <Divider style={styles.divider} />
+
               <View style={styles.row}>
-                <IconButton icon="google-maps" size={20} />
-                <Text>Location: {hotelData.HotelLocation}</Text>
+                <IconButton icon="google-maps" size={24} />
+                <Text
+                  style={styles.text}
+                  onPress={() => Linking.openURL(hotelData.HotelLocation)}
+                > Location:
+                  <Text style={{ color: "blue" }}>
+                    {hotelData.HotelLocation}
+                  </Text>
+                </Text>
               </View>
-              <Divider />
+              <Divider style={styles.divider} />
+
               <View style={styles.row}>
-                <IconButton icon="bed" size={20} />
-                <Text>Rooms: {hotelData.HotelRoomType}</Text>
+                <IconButton icon="bed" size={24} />
+                <Text style={styles.text}>
+                  Rooms: {hotelData.HotelRoomType}
+                </Text>
               </View>
-              <Divider />
+              <Divider style={styles.divider} />
+
               <View style={styles.row}>
-                <IconButton icon="check-circle" size={20} />
-                <Text>
+                <IconButton icon="check-circle" size={24} />
+                <Text style={styles.text}>
                   Facilities:{" "}
                   {Array.isArray(hotelData.HotelFacilties)
                     ? hotelData.HotelFacilties.join(", ")
                     : "N/A"}
                 </Text>
               </View>
-              <Divider />
+              <Divider style={styles.divider} />
+
               <View style={styles.row}>
-                <IconButton icon="car" size={20} />
-                <Text>
-                  Features:
+                <IconButton icon="car" size={24} />
+                <Text style={styles.text}>
+                  Features:{" "}
                   {Array.isArray(hotelData.HotelFeatures)
                     ? hotelData.HotelFeatures.join(", ")
                     : "N/A"}
                 </Text>
               </View>
+              <Divider style={styles.divider} />
+
               <View style={styles.row}>
-                <IconButton icon="details" size={20} />
-                <Text>Details: {hotelData.HotelDetails}</Text>
+                <IconButton icon="details" size={24} />
+                <Text style={styles.text}>
+                  Details: {hotelData.HotelDetails}
+                </Text>
               </View>
             </Card.Content>
+            <View style={styles.bottomtextbar}>
+              <Text style={styles.bottomtext}>
+                If you feel unsafe, please contact Dial 100
+              </Text>
+              <IconButton
+                icon="phone-dial"
+                size={30}
+                iconColor="red"
+                onPress={() => {
+                  Linking.openURL("tel:100");
+                }}
+              />
+            </View>
           </Card>
-          <View style={styles.bottomtextbar}>
-            <Text style={styles.bottomtext}>
-              If you feel unsafe, please contact Dial 100
-            </Text>
-            <IconButton
-              icon="phone-dial"
-              size={30}
-              iconColor="red" // Change to your desired color
-              onPress={() => {
-                Linking.openURL("tel:100");
-              }}
-            />
-          </View>
         </ScrollView>
       )}
     </SafeAreaView>
@@ -165,7 +196,7 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 20,
+    marginTop: 18,
   },
   headertext: {
     marginBottom: 20,
@@ -182,6 +213,36 @@ const styles = StyleSheet.create({
   bottomtext: {
     color: "red",
     fontSize: 20,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: "bold",
+    marginBottom: 10,
+  },
+  paragraph: {
+    fontSize: 16,
+    marginBottom: 10,
+  },
+  row: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginVertical: 8,
+  },
+  text: {
+    fontSize: 18,
+    marginLeft: 10,
+  },
+  divider: {
+    marginVertical: 8,
+  },
+  bottomtextbar: {
+    padding: 10,
+    alignItems: "center",
+    backgroundColor: "#f5f5f5",
+  },
+  bottomtext: {
+    fontSize: 16,
+    fontWeight: "bold",
   },
 });
 
