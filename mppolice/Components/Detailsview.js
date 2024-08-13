@@ -95,19 +95,19 @@ const Detailsview = () => {
             <Card.Content>
               <Title style={styles.title}>{hotelData.HotelName}</Title>
               <Paragraph style={styles.paragraph}>
-                Location: {hotelData.HotelAddress}
+                Location: {hotelData.HotelAddress.toUpperCase()}
               </Paragraph>
 
               <View style={styles.row}>
                 <IconButton icon="food" size={24} />
-                <Text style={styles.text}>Type: {hotelData.HotelType}</Text>
+                <Text style={styles.text}>Type: {hotelData.HotelType.toUpperCase()}</Text>
               </View>
               <Divider style={styles.divider} />
 
               <View style={styles.row}>
                 <IconButton icon="currency-usd" size={24} />
                 <Text style={styles.text}>
-                  Rent: ₹{hotelData.HotelRent} per night
+                  Rent: ₹{hotelData.HotelRent} Per Day
                 </Text>
               </View>
               <Divider style={styles.divider} />
@@ -125,8 +125,10 @@ const Detailsview = () => {
                 <Text
                   style={styles.text}
                   onPress={() => Linking.openURL(hotelData.HotelLocation)}
-                > Location:
-                  <Text style={{ color: "blue" }}>
+                >
+                  {" "}
+                  Location:
+                  <Text style={{ color: "#1D9BF0" }}>
                     {hotelData.HotelLocation}
                   </Text>
                 </Text>
@@ -136,7 +138,7 @@ const Detailsview = () => {
               <View style={styles.row}>
                 <IconButton icon="bed" size={24} />
                 <Text style={styles.text}>
-                  Rooms: {hotelData.HotelRoomType}
+                  Rooms: {hotelData.HotelRoomType.toUpperCase()}
                 </Text>
               </View>
               <Divider style={styles.divider} />
@@ -146,7 +148,7 @@ const Detailsview = () => {
                 <Text style={styles.text}>
                   Facilities:{" "}
                   {Array.isArray(hotelData.HotelFacilties)
-                    ? hotelData.HotelFacilties.join(", ")
+                    ? hotelData.HotelFacilties.join(", ").toUpperCase()
                     : "N/A"}
                 </Text>
               </View>
@@ -157,7 +159,7 @@ const Detailsview = () => {
                 <Text style={styles.text}>
                   Features:{" "}
                   {Array.isArray(hotelData.HotelFeatures)
-                    ? hotelData.HotelFeatures.join(", ")
+                    ? hotelData.HotelFeatures.join(", ").toUpperCase()
                     : "N/A"}
                 </Text>
               </View>
@@ -166,7 +168,7 @@ const Detailsview = () => {
               <View style={styles.row}>
                 <IconButton icon="details" size={24} />
                 <Text style={styles.text}>
-                  Details: {hotelData.HotelDetails}
+                  Details: {hotelData.HotelDetails.toUpperCase()}
                 </Text>
               </View>
             </Card.Content>
@@ -177,7 +179,7 @@ const Detailsview = () => {
               <IconButton
                 icon="phone-dial"
                 size={30}
-                iconColor="red"
+                iconColor="#1D9BF0"
                 onPress={() => {
                   Linking.openURL("tel:100");
                 }}
@@ -227,6 +229,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     marginVertical: 8,
+    flexWrap: "wrap",
   },
   text: {
     fontSize: 18,

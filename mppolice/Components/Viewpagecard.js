@@ -7,49 +7,15 @@ const StyledView = styled(View);
 const StyledText = styled(Text);
 const StyledImage = styled(Image);
 const StyledTouchableOpacity = styled(TouchableOpacity);
-const Viewpagecard = ({ navigation }) => {
+const Viewpagecard = ({ navigation, filteredHotelsByName, isLoading }) => {
+  console.log("🚀 ~ Viewpagecard ~ hotelData:", filteredHotelsByName);
   const imageUrl = "https://picsum.photos/200/300";
-  const title = "example hotel name";
-  const [documents, setDocuments] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  const fetchDocuments = async () => {
-    try {
-      const response = await fetch(
-        "https://cloud.appwrite.io/v1/databases/66b259c60016ac264278/collections/66b2e5f30005a3f43af5/documents",
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            "X-Appwrite-Project": "66b258b500353050426f", // Your Project ID
-          },
-        }
-      );
-
-      if (!response.ok) {
-        throw new Error("Failed to fetch documents");
-      }
-
-      const data = await response.json();
-
-      setDocuments(data.documents);
-      return data.documents; // Assuming the response has a 'documents' field
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setIsLoading(false); // Ensure loading state is set to false after fetching
-    }
-  };
-  useEffect(() => {
-    fetchDocuments();
-  });
   return (
     <View>
       {isLoading ? (
         <DataSpinner />
-      ) : (
-        documents &&
-        documents.map((hotel) => (
+      ) : filteredHotelsByName.length > 0 ? (
+        filteredHotelsByName.map((hotel) => (
           <StyledTouchableOpacity
             key={hotel.$id}
             onPress={() =>
@@ -71,6 +37,10 @@ const Viewpagecard = ({ navigation }) => {
             </StyledView>
           </StyledTouchableOpacity>
         ))
+      ) : (
+        <StyledText className="text-center text-red-500 mt-4">
+          No hotels found
+        </StyledText>
       )}
     </View>
   );

@@ -2,18 +2,19 @@ import * as React from "react";
 import { Searchbar, Text } from "react-native-paper";
 import { StyleSheet, View } from "react-native";
 
-const Viewpagesearchbar = () => {
-  const [searchQuery, setSearchQuery] = React.useState("");
+const Viewpagesearchbar = ({ searchQuery, setSearchQuery }) => {
+console.log("🚀 ~ Viewpagesearchbar ~ searchQuery:", searchQuery)
+
 
   return (
     <View style={styles.container}>
       <Text style={styles.headertext} variant="titleLarge">
-        MAIHAR POLICE HOTEL SEARCH{" "}
+        MAIHAR HOTEL SEARCH{" "}
       </Text>
       <Searchbar
         placeholder="Search"
-        onChangeText={setSearchQuery}
         value={searchQuery}
+        onChangeText={setSearchQuery}
         style={styles.searchquerytext}
       />
     </View>
