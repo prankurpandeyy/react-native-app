@@ -3,6 +3,7 @@ import Viewpagesearchbar from "../Components/Viewpagesearchbar";
 import Viewpagecard from "../Components/Viewpagecard";
 import Viewpagefilters from "../Components/Viewpagefilters";
 import { useEffect, useState } from "react";
+import { StyleSheet } from "react-native";
 
 const Viewpage = ({ navigation }) => {
   const [hotelData, setHotelData] = useState([]);
@@ -49,7 +50,7 @@ const Viewpage = ({ navigation }) => {
 
   return (
     <SafeAreaView>
-      <ScrollView>
+      <ScrollView style={styles.container}>
         <Viewpagesearchbar
           searchQuery={searchQuery}
           setSearchQuery={setSearchQuery}
@@ -68,5 +69,12 @@ const Viewpage = ({ navigation }) => {
     </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "white",
+    height: "100%",
+  },
+});
 
 export default Viewpage;

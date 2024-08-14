@@ -100,6 +100,7 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     marginRight: 20,
     marginBottom: 20,
+    backgroundColor: "#F0F8FF",
   },
   historyText: {
     fontSize: 15,
