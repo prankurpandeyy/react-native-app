@@ -41,10 +41,8 @@ const Detailsview = () => {
 
   const route = useRoute();
   const { hotelId } = route.params; // Access hotelId here
-  // const databaseId = import.meta.env.VITE_APPWRITE_DATABASE_ID;
-  // console.log("🚀 ~ Detailsview ~ databaseId:", databaseId);
-  // const collectionId = import.meta.env.VITE_APPWRITE_COLLECTION_ID;
-  // console.log("🚀 ~ Detailsview ~ collectionId:", collectionId);
+
+
 
   const fetchHotelById = async (hotelId) => {
     try {
