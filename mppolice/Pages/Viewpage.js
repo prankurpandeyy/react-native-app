@@ -1,4 +1,9 @@
-import { React, SafeAreaView, ScrollView } from "../Constant/Libraryconstant";
+import {
+  Chip,
+  React,
+  SafeAreaView,
+  ScrollView,
+} from "../Constant/Libraryconstant";
 import Viewpagesearchbar from "../Components/Viewpagesearchbar";
 import Viewpagecard from "../Components/Viewpagecard";
 import Viewpagefilters from "../Components/Viewpagefilters";
@@ -46,7 +51,12 @@ const Viewpage = ({ navigation }) => {
     fetchHotelData();
   }, []);
 
-  // filter by price
+  // clear all filters
+  const clearFilters = () => {
+    setHotelData(hotelData);
+    setSearchQuery("");
+    fetchHotelData();
+  };
 
   return (
     <SafeAreaView>
@@ -58,6 +68,7 @@ const Viewpage = ({ navigation }) => {
         <Viewpagefilters
           hotelData={hotelData} // Your hotel data from API
           setHotelData={setHotelData}
+          fetchHotelData={fetchHotelData}
         />
 
         <Viewpagecard

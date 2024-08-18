@@ -3,9 +3,6 @@ import { Searchbar, Text } from "react-native-paper";
 import { StyleSheet, View } from "react-native";
 
 const Viewpagesearchbar = ({ searchQuery, setSearchQuery }) => {
-console.log("🚀 ~ Viewpagesearchbar ~ searchQuery:", searchQuery)
-
-
   return (
     <View style={styles.container}>
       <Text style={styles.headertext} variant="titleLarge">

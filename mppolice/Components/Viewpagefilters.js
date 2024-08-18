@@ -1,9 +1,8 @@
-// Viewpagefilters.js
-import React, { useEffect, useState } from "react";
-import { View, StyleSheet, Alert } from "react-native";
-import { Chip, Title, Button } from "react-native-paper";
+import React, { useState, useEffect } from "react";
+import { View, StyleSheet } from "react-native";
+import { Chip, Title, Text } from "react-native-paper";
 
-const Viewpagefilters = ({ hotelData, setHotelData }) => {
+const Viewpagefilters = ({ hotelData, setHotelData,fetchHotelData }) => {
   const priceRanges = [
     { label: "All", min: 0, max: Infinity },
     { label: "Below ₹500", min: 0, max: 500 },
@@ -13,42 +12,48 @@ const Viewpagefilters = ({ hotelData, setHotelData }) => {
   ];
 
   const [selectedRange, setSelectedRange] = useState(priceRanges[0]);
-  const [filteredHotelData, setFilteredHotelData] = useState();
+
+  useEffect(() => {
+    applyFilter();
+  }, [selectedRange]);
 
   const applyFilter = () => {
-    const filteredHotels = hotelData.filter((hotel) => {
-      const hotelRent = parseInt(hotel.HotelRent, 10);
-      return hotelRent >= selectedRange.min && hotelRent <= selectedRange.max;
-    });
+    if (selectedRange.label === "All") {
+      setHotelData(hotelData);
+      fetchHotelData()
 
-    setHotelData(filteredHotels.length > 0 ? filteredHotels : []);
+    } else {
+      const filteredHotels = hotelData.filter((hotel) => {
+        const hotelRent = parseInt(hotel.HotelRent, 10);
+        console.log("🚀 ~ filteredHotels ~ hotelRent:", hotelRent);
+
+        return hotelRent >= selectedRange.min && hotelRent <= selectedRange.max;
+      });
+
+      setHotelData(filteredHotels.length > 0 ? filteredHotels : []);
+    }
   };
 
-  {
-    return (
-      <View style={styles.container}>
-        <Title style={styles.title}>Filter by Price</Title>
-        <View style={styles.chipsContainer}>
-          {priceRanges.map((range) => (
-            <Chip
-              key={range.label}
-              mode={
-                selectedRange.label === range.label ? "contained" : "outlined"
-              }
-              selected={selectedRange.label === range.label}
-              onPress={() => setSelectedRange(range)}
-              style={styles.chip}
-            >
-              {range.label}
-            </Chip>
-          ))}
-        </View>
-        <Button mode="contained" style={styles.button} onPress={applyFilter}>
-          Apply
-        </Button>
+  return (
+    <View style={styles.container}>
+      <Title style={styles.title}>Filter by Price</Title>
+      <View style={styles.chipsContainer}>
+        {priceRanges.map((range) => (
+          <Chip
+            key={range.label}
+            mode={
+              selectedRange.label === range.label ? "contained" : "outlined"
+            }
+            selected={selectedRange.label === range.label}
+            onPress={() => setSelectedRange(range)}
+            style={styles.chip}
+          >
+            {range.label}
+          </Chip>
+        ))}
       </View>
-    );
-  }
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({
@@ -56,10 +61,9 @@ const styles = StyleSheet.create({
     padding: 16,
     backgroundColor: "white",
     borderRadius: 10,
-   
   },
   title: {
-    marginBottom: 3,
+    marginBottom: 8,
   },
   chipsContainer: {
     flexDirection: "row",
@@ -70,9 +74,6 @@ const styles = StyleSheet.create({
   },
   chip: {
     margin: 2,
-  },
-  button: {
-    alignSelf: "center",
   },
 });
 
